@@ -39,12 +39,18 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
+<<<<<<< HEAD
     val camerax_version = "1.4.0-alpha03"
 
 
+=======
+>>>>>>> b7da73ca9d9e2c3d409ce01946fcd4abb7bf1d8b
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
@@ -55,6 +61,7 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
+<<<<<<< HEAD
     implementation("androidx.camera:camera-camera2:${camerax_version}")
     implementation("androidx.camera:camera-core:${camerax_version}")
     implementation("androidx.camera:camera-lifecycle:${camerax_version}")
@@ -64,4 +71,9 @@ dependencies {
 
 
 
+=======
+    val nav_version = "2.7.6"
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+>>>>>>> b7da73ca9d9e2c3d409ce01946fcd4abb7bf1d8b
 }
