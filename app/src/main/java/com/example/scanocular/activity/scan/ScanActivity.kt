@@ -47,12 +47,19 @@ class ScanActivity : AppCompatActivity() {
 
         cameraExecutor = Executors.newSingleThreadExecutor()
 
+        showCustomDialog()
+
         startCamera()
 
         // Set up click listener for the "Take Picture" button
         binding.btnCapture.setOnClickListener {
             takePicture()
         }
+    }
+
+    private fun showCustomDialog() {
+        val customDialog = ScanTOSDialog(this)
+        customDialog.show()
     }
 
     private fun startCamera() {
