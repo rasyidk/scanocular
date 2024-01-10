@@ -7,6 +7,6 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface ScanAPI {
-    @POST("api/pemeriksaan/cekmata/katarak")
+    @POST("pemeriksaan/cekmata/katarak")
     fun uploadImage(@Body request: ScanUploadRequest): Call<ScanResponse>
 }

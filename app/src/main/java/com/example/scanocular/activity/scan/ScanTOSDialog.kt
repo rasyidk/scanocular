@@ -2,11 +2,14 @@ package com.example.scanocular.activity.scan
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ScrollView
 import android.widget.TextView
 import com.example.scanocular.R
+import com.example.scanocular.activity.main.MainActivity
 
 class ScanTOSDialog(private val context: Context) {
 
@@ -17,11 +20,8 @@ class ScanTOSDialog(private val context: Context) {
 
         // Access views from the custom layout
         val titleTextView: TextView = dialogView.findViewById(R.id.customDialogTitle)
-        val inputEditText: EditText = dialogView.findViewById(R.id.customDialogInput)
         val okButton: Button = dialogView.findViewById(R.id.customDialogButton)
-
-        // Customize the views if needed
-        titleTextView.text = "Custom Title"
+        val cancelButton : Button = dialogView.findViewById(R.id.tos_bt_cancel)
 
         // Set up the AlertDialog
         builder.setView(dialogView)
@@ -29,12 +29,26 @@ class ScanTOSDialog(private val context: Context) {
 
         // Set click listener for the OK button
         okButton.setOnClickListener {
-            val userInput = inputEditText.text.toString()
-            // Handle the user input or perform any action
-            // ...
 
-            // Dismiss the dialog
+            val customDialog = ScanTutorDialog(context)
+            customDialog.show()
+
             dialog.dismiss()
+        }
+
+        cancelButton.setOnClickListener{
+
+            val intent = Intent(context, MainActivity::class.java)
+
+            // Add any additional data to the intent if needed
+            // intent.putExtra("key", "value")
+
+            // Start the activity
+            context.startActivity(intent)
+
+            // Dismiss the dialog if needed
+            dialog.dismiss()
+
         }
 
         // Show the dialog
