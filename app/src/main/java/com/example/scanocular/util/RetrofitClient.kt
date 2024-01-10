@@ -15,6 +15,7 @@ object RetrofitClient {
             .connectTimeout(60, TimeUnit.SECONDS) // Increase connect timeout to 60 seconds
             .writeTimeout(60, TimeUnit.SECONDS)
             .addInterceptor(mHttpLoggingInterceptor)
+            .addInterceptor(TrailingSlashInterceptor())
             .build()
 
         Retrofit.Builder()

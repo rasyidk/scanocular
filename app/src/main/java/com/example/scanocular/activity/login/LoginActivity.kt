@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.widget.Toast
 import com.example.scanocular.R
 import com.example.scanocular.activity.main.MainActivity
@@ -12,7 +13,9 @@ import com.example.scanocular.api.user.UserApi
 import com.example.scanocular.databinding.ActivityLoginBinding
 import com.example.scanocular.model.users.LoginRequest
 import com.example.scanocular.model.users.LoginResponse
+import com.example.scanocular.model.users.User
 import com.example.scanocular.util.RetrofitClient
+import com.example.scanocular.util.SharedPreferencesManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,21 +24,37 @@ class LoginActivity : AppCompatActivity() {
     private  lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        setupListener()
+        val name = SharedPreferencesManager.getUserData(this)
+        if (name !== null){
+            startActivity(Intent(this@LoginActivity,MainActivity::class.java))
+            finish()
+        }else{
+            binding = ActivityLoginBinding.inflate(layoutInflater)
+            setContentView(binding.root)
+            setupListener()
+        }
     }
 
     private fun setupListener(){
         with(binding){
             buttonLog.setOnClickListener(){
-//                login()
-                startActivity(Intent(this@LoginActivity,MainActivity::class.java))
+                if (emailField.text.toString().isEmpty()){
+                    emailField.error = "Email harus diisi"
+                    return@setOnClickListener
+                }
+                if (!Patterns.EMAIL_ADDRESS.matcher(emailField.text).matches()){
+                    emailField.error = "Email tidak valid"
+                    return@setOnClickListener
+                }
+                if (passwordField.text.toString().length < 8){
+                    passwordField.error = "Password minimal 8 karakter"
+                    return@setOnClickListener
+                }
+                login()
             }
-
             logintoreg.setOnClickListener{
                 startActivity(Intent(this@LoginActivity,RegisterActivity::class.java))
-
+                finish()
             }
         }
     }
@@ -46,32 +65,29 @@ class LoginActivity : AppCompatActivity() {
                 val email = emailField.text.toString()
                 val password = passwordField.text.toString()
                 val apiService = RetrofitClient.instance.create(UserApi::class.java)
-                val req = LoginRequest(email,password)
+                val req = LoginRequest(password,email)
                 val call = apiService.login(req)
-
                 call.enqueue(object : Callback<LoginResponse> {
                     override fun onResponse(
                         call: Call<LoginResponse>,
                         response: Response<LoginResponse>
                     ) {
                         if (response.isSuccessful){
-                            Toast.makeText(this@LoginActivity,"Login Berhasil",Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this@LoginActivity,MainActivity::class.java))
+                            val data = response.body()!!.data
+                            val user = User(data!!.nIK,"",data.name,data.email,data.ttl,data.alamat)
+                            SharedPreferencesManager.saveUserData(this@LoginActivity,user)
+                            finish()
                         }else{
-                            Toast.makeText(this@LoginActivity,"Gagal Login",Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@LoginActivity,"Terjadi Kesalahan, Silahkan Coba Lagi",Toast.LENGTH_SHORT).show()
                         }
-                        Log.d("Response Headers", response.headers().toString())
-                        Log.d("Response Body", response.body().toString())
-                        Log.d("Response Body", response.raw().toString())
                     }
-
                     override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                        Log.d("EXP",t.message.toString())
+                        Toast.makeText(this@LoginActivity,"Terjadi Kesalahan, Silahkan Coba Lagi",Toast.LENGTH_SHORT).show()
                     }
                 })
-
             }catch (e:Exception){
-                Log.d("EXP",e.message.toString())
-
+                Toast.makeText(this@LoginActivity,"Terjadi Kesalahan, Silahkan Coba Lagi",Toast.LENGTH_SHORT).show()
             }
         }
     }
