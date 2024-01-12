@@ -5,4 +5,6 @@
     <color name="colorPrimary">#295FA6</color>
     <color name="textColor">#3F3F3F</color>
     <color name="gray1">#D9D9D9</color>
+    <color name="gray3">#EEF3F8</color>
+
 </resources>

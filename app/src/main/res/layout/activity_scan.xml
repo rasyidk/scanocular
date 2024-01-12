@@ -1,31 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <TextView
-        android:id="@+id/textViewCopy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Text to be copied"
-        android:clickable="true"
-        android:focusable="true"
-        android:onClick="copyTextToClipboard"/>
-
-
     <androidx.camera.view.PreviewView
-        android:layout_marginTop="30dp"
         android:id="@+id/cameraPreviewView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <Button
-        android:id="@+id/btnCapture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="16dp"
-        android:text="Capture Photo" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Button with rounded corners -->
+        <Button
+            android:id="@+id/btnCapture"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_button_background"
+            android:padding="16dp"
+            android:drawableTop="@drawable/baseline_photo_camera_24"
+            android:textColor="#FFFFFF" />
+
+        <!-- CardView to wrap FrameLayout with rounded corners -->
+        <androidx.cardview.widget.CardView
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_margin="@dimen/margin_large"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp"
+            android:id="@+id/cardViewprogress"
+            android:visibility="invisible"
+            >
+
+            <LinearLayout
+                android:padding="@dimen/margin_large"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <!-- ProgressBar -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="?android:attr/progressBarStyleLarge" />
+
+            <!-- TextView with analyzing text -->
+            <TextView
+                android:id="@+id/analyzingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Analyzing Image"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="8dp" />
+            </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </RelativeLayout>
+    </RelativeLayout>
