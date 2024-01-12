@@ -6,6 +6,9 @@
 **Backend**
 * Link : https://github.com/rasyidk/ScanOcular_backend
 
+**Web Dashboard**
+* Link : https://github.com/pudyasta/scanocular-dashboard
+
 **App Result**
 
  
