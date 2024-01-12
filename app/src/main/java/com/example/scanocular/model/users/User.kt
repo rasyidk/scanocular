@@ -4,6 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 data class User(
 
+	val id:Int=0,
+
 	@field:SerializedName("NIK")
 	val nIK: String? = null,
 

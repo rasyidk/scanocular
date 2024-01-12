@@ -15,15 +15,21 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.Scanocular"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
 
         <activity
-            android:name=".activity.scan.ScanResultActivity"
+            android:name=".activity.splashscreen.SplashScreen"
             android:exported="false" />
 
+        <activity
+            android:name=".activity.login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.news.NewsActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.register.RegisterActivity"
             android:exported="false" />
@@ -34,11 +40,10 @@
             android:name=".activity.scan.ScanActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.login.LoginActivity"
+            android:name=".activity.scan.ScanResultActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
