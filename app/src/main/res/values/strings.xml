@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">scanocular</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="history">History</string>
+    <string name="home">Home</string>
+    <string name="masuk">Masuk</string>
+    <string name="belum_memiliki_akun_daftar_sekarang">Belum memiliki akun? Daftar sekarang</string>
+    <string name="password">Password</string>
+    <string name="mulai_cek_kesehatan_mata_anda_secara_rutin_gratis_dengan_masuk_ke_aplikasi">Mulai cek kesehatan mata anda secara rutin gratis dengan masuk ke aplikasi</string>
+    <string name="sudah_memiliki_akun_login">Sudah memiliki akun? Login</string>
+    <string name="image_title">image title</string>
+    <string name="lorem">Norem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.</string>
 </resources>
