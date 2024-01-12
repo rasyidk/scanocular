@@ -62,7 +62,7 @@
                 android:id="@+id/nik_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
+                android:inputType="number"
                 android:autofillHints="emailAddress"
                 android:layout_below="@+id/nik_log_label"
                 android:background="@drawable/edit_text_bg"
@@ -95,7 +95,7 @@
                 android:id="@+id/nama_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:autofillHints="emailAddress"
                 android:layout_below="@+id/nama_log_label"
                 android:background="@drawable/edit_text_bg"
@@ -209,13 +209,11 @@
             <EditText
                 android:id="@+id/alamat_field"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:inputType="textEmailAddress"
-                android:autofillHints="emailAddress"
+                android:layout_height="150dp"
+                android:inputType="textMultiLine"
                 android:layout_below="@+id/alamat_log_label"
                 android:background="@drawable/edit_text_bg"
                 android:paddingHorizontal="20dp"
-                android:paddingVertical="10dp"
                 tools:ignore="LabelFor" />
         </RelativeLayout>
         <RelativeLayout

@@ -78,7 +78,7 @@ class RegisterActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
                     return@setOnClickListener
                 }
 
-                register(User(nikField.text.toString(),
+                register(User(0,nikField.text.toString(),
                     passwordField.text.toString(),
                     namaField.text.toString(),
                     emailField.text.toString(),
