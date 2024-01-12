@@ -1,0 +1,102 @@
+<!-- res/layout/custom_alert_dialog.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/customDialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TERMS OF SERVICE"
+        android:textSize="@dimen/text_size_large"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <ScrollView
+        android:layout_marginTop="@dimen/margin_medium"
+        android:id="@+id/tos_scrollview"
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_height="350dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tos_title"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/tos_1"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/tos_2"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/tos_3"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/tos_4"
+                />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+
+        <Button
+            android:id="@+id/customDialogButton"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_below="@+id/password_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:backgroundTint="@color/colorPrimary"
+            app:cornerRadius="10dp"
+            android:textAllCaps="false"
+            />
+
+        <Button
+            android:id="@+id/tos_bt_cancel"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_below="@+id/password_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:backgroundTint="@color/colorPrimary"
+            app:cornerRadius="10dp"
+            android:textAllCaps="false"
+            />
+    </LinearLayout>
+
+</LinearLayout>

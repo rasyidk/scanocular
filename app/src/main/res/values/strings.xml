@@ -9,6 +9,35 @@
     <string name="password">Password</string>
     <string name="mulai_cek_kesehatan_mata_anda_secara_rutin_gratis_dengan_masuk_ke_aplikasi">Mulai cek kesehatan mata anda secara rutin gratis dengan masuk ke aplikasi</string>
     <string name="sudah_memiliki_akun_login">Sudah memiliki akun? Login</string>
+
+
+    <string name="tos_title">"Terms of Service (ToS) Aplikasi Scanocular untuk Penelitian dan Pengembangan</string>
+    <string name="tos_1">1. Penerimaan Persyaratan a. Dengan menggunakan aplikasi Scanocular, pengguna setuju untuk terikat oleh semua persyaratan dalam Terms of Service ini. b. Jika pengguna tidak setuju dengan salah satu bagian dari persyaratan ini, pengguna tidak diizinkan menggunakan aplikasi ini.</string>
+    <string name="tos_2">2. Penggunaan Aplikasi a. Aplikasi Scanocular hanya boleh digunakan oleh pengguna yang telah memahami bahwa aplikasi ini hanya untuk tujuan penelitian dan pengembangan. b. Data yang dihasilkan dari pemindaian mata pengguna akan digunakan secara anonim dan dijamin kerahasiaannya sesuai dengan kebijakan privasi yang berlaku. c. Pengguna diharapkan untuk memberikan informasi yang akurat dan valid saat menggunakan aplikasi ini.</string>
+    <string name="tos_3">3. Keterbatasan Aplikasi a. Aplikasi Scanocular tidak dimaksudkan sebagai pengganti diagnosis medis yang dilakukan oleh tenaga medis yang berkualifikasi. b. Hasil pemindaian dan rekomendasi yang diberikan oleh aplikasi ini hanya bersifat informasional dan tidak boleh dianggap sebagai diagnosis medis yang sah.</string>
+    <string name="tos_4">4. Penggunaan Data untuk Penelitian dan Pengembangan a. Data yang diperoleh dari pemindaian mata pengguna dapat digunakan untuk penelitian dan pengembangan aplikasi oleh pihak yang berwenang. b. Data yang digunakan akan diolah dan dianonimkan agar tidak dapat diidentifikasi secara personal. c. Pihak yang berwenang akan menjaga kerahasiaan dan </string>
+
+
+    <string name="tutor_title">Ikuti petunjuk di bawah ini agar hasil scan semakin akurat</string>
+    <string name="tutor_1">1. Pastikan untuk melepas semua atribut mata seperti kacamata, lensa kontak, dan sejenisnya</string>
+    <string name="tutor_2">2. Atur jarak 10 hingga 20 cm dari kamera handphone dan mengarah ke salah satu mata saja</string>
+    <string name="tutor_3">3. Jika memungkinkan nyalakan flash kamera untuk menghindari pantulan cahaya ruangan sekitar anda</string>
+
+
+    <string name="result_information">Data hasil pemindaian anda akan diperiksa oleh tenaga
+kesehatan yang telah bekerjasama dengan Scanocular. Hasil
+peninjauan akan dikirimkan kembali kepada pengguna setelah
+mendapat persetujuan dari pihak peninjau.  </string>
+    <string name="cataract_information">Katarak adalah suatu penyakit ketika lensa mata menjadi
+keruh dan berawan. Pada umumnya, katarak berkembang
+perlahan dan awalnya tidak terasa mengganggu. Namun,
+lama-kelamaan, katarak akan mengganggu penglihatan dan
+ membuat pengidap merasa seperti melihat jendela berkabut,
+sulit menyetir, membaca, serta melakukan aktivitas sehari-hari.
+Penyakit mata ini merupakan penyebab kebutaan utama
+di dunia yang dapat diobati.</string>
+
+
     <string name="image_title">image title</string>
     <string name="lorem">Norem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.</string>
 </resources>
