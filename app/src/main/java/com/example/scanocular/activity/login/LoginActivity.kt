@@ -75,7 +75,7 @@ class LoginActivity : AppCompatActivity() {
                         if (response.isSuccessful){
                             startActivity(Intent(this@LoginActivity,MainActivity::class.java))
                             val data = response.body()!!.data
-                            val user = User(data!!.nIK,"",data.name,data.email,data.ttl,data.alamat)
+                            val user = User(0,data!!.nIK,"",data.name,data.email,data.ttl,data.alamat)
                             SharedPreferencesManager.saveUserData(this@LoginActivity,user)
                             finish()
                         }else{
