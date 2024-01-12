@@ -19,9 +19,14 @@
         android:theme="@style/Theme.Scanocular"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+         <activity
+            android:name=".activity.main.ProfileActivity"
+            android:exported="false" />
+
         <activity
             android:name=".activity.login.LoginActivity"
             android:exported="false" />
+
         <activity
             android:name=".activity.news.NewsActivity"
             android:exported="false" />
