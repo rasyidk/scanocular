@@ -130,7 +130,7 @@ class ScanActivity : AppCompatActivity() {
         }
 
         val byteArrayOutputStream = ByteArrayOutputStream()
-        bitmap?.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream)
+        bitmap?.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream)
         val byteArray = byteArrayOutputStream.toByteArray()
         val base64Image = Base64.encodeToString(byteArray, Base64.DEFAULT)
 
@@ -183,8 +183,6 @@ class ScanActivity : AppCompatActivity() {
 
                 override fun onFailure(call: Call<ScanResponse>, t: Throwable) {
                     // Handle network error or other failures
-//                    Toast.makeText(this@ScanActivity, "Failure", Toast.LENGTH_SHORT).show()
-//                    println("API Call Failed: ${t.message}")
                     Toast.makeText(this@ScanActivity, "Error!", Toast.LENGTH_SHORT).show()
                     binding.cardViewprogress.visibility = View.GONE
                     t.printStackTrace()

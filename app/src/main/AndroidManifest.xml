@@ -31,10 +31,10 @@
             android:name=".activity.main.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.login.LoginActivity"
+            android:name=".activity.scan.ScanActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.scan.ScanActivity"
+            android:name=".activity.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
