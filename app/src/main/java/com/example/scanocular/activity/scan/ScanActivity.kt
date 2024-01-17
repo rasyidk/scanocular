@@ -5,6 +5,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -12,13 +13,16 @@ import android.util.Base64
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import android.Manifest
 import com.example.scanocular.api.scan.ScanAPI
 import com.example.scanocular.databinding.ActivityScanBinding
 import com.example.scanocular.model.scan.ScanResponse
@@ -39,6 +43,18 @@ class ScanActivity : AppCompatActivity() {
     private lateinit var imageCapture: ImageCapture
     private var imageFile: File? = null
 
+    companion object {
+        private const val REQUEST_CAMERA_PERMISSION = 100
+    }
+    private val requestPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            if (isGranted) {
+                startCamera()
+            } else {
+                Toast.makeText(this, "Camera permission denied", Toast.LENGTH_SHORT).show()
+            }
+        }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,11 +66,31 @@ class ScanActivity : AppCompatActivity() {
 
         showCustomDialog()
 
-        startCamera()
 
+        checkCameraPermission()
         // Set up click listener for the "Take Picture" button
         binding.btnCapture.setOnClickListener {
             takePicture()
+        }
+    }
+
+
+    private fun checkCameraPermission() {
+        val cameraPermission = Manifest.permission.CAMERA
+        when {
+            ContextCompat.checkSelfPermission(this, cameraPermission) == PackageManager.PERMISSION_GRANTED -> {
+                // Permission already granted, initialize the camera
+                startCamera()
+            }
+            ActivityCompat.shouldShowRequestPermissionRationale(this, cameraPermission) -> {
+                // Explain to the user why camera permission is needed
+                // You can show a dialog or a Snackbar here
+                requestPermissionLauncher.launch(cameraPermission)
+            }
+            else -> {
+                // Request camera permission
+                requestPermissionLauncher.launch(cameraPermission)
+            }
         }
     }
 
@@ -205,6 +241,12 @@ class ScanActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        cameraExecutor.shutdown()
+
+
+        try {
+            cameraExecutor.shutdown()
+        } catch (e: Exception) {
+            Log.e("CameraError", "Error releasing camera resources: ${e.message}")
+        }
     }
 }
