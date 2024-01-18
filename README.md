@@ -3,6 +3,8 @@
 * Muhammad Abyan F.Y.
 * Rasyid Kusnady.
 
+**Backend**
+https://github.com/rasyidk/ScanOcular_backend
 
 **App Result**
 
